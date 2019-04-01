@@ -1,0 +1,33 @@
+<footer class="grid-x padding-2" style="font-family: 'Oxygen', sans-serif; font-weight: bold">
+    <div class="cell">
+        <a href="../{{p.page_name}}" ng-repeat="p in pages" class="{{p.page_name == '_header' || p.page_name == '_footer' ? '' : 'padding-right-1' }}" style="color:inherit">{{p.page_name == '_header' || p.page_name == '_footer' ? '' : p.page_name == 'index' ? 'home' : p.page_name | replaceDash | camelCase}}</a>
+        <br>
+        <br>
+    </div>
+    <div class="cell small-6">
+        <div class="text-left">
+            <a style="color:inherit" href="{{site_facebook.value}}" class="fa fa-facebook-f padding-right-1"></a>
+            <a style="color:inherit" href="{{site_twitter.value}}" class="fa fa-twitter padding-right-1"></a>
+            <a style="color:inherit" href="{{site_instagram.value}}" class="fa fa-instagram padding-right-1"></a>
+            <a style="color:inherit" href="{{site_linkedin.value}}" class="fa fa-linkedin padding-right-1"></a>
+            <a style="color:inherit" href="{{site_youtube.value}}" class="fa fa-youtube padding-right-1"></a>
+        </div>
+    </div>
+    <div class="cell small-6"><div class="text-right" ng-bind-html="site_copyright.value"></div></div>
+</footer>
+<script>
+    window.onscroll = function() { scrollFunction() };
+    function scrollFunction() {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("header").style.background = 'white';
+        document.getElementById("header").style.color = 'black';
+        document.getElementById("hf").style.paddingTop = '1px';
+        document.getElementById("hf").style.paddingBottom = '1px';
+      } else {
+        document.getElementById("header").style.background = 'transparent';
+        document.getElementById("header").style.color = 'white';
+        document.getElementById("hf").style.paddingTop = '1rem';
+        document.getElementById("hf").style.paddingBottom = '1rem';
+      }
+    }
+</script>

@@ -1,0 +1,116 @@
+/*** SETUP ***/
+
+h3, p { margin:0; }
+
+h1,h2,h3,h4,h5,h6 { color:inherit; }
+
+.w-medium {font-weight: 500; }
+.semi-bold { font-weight: 600; }
+.bold { font-weight: 700; }
+
+.small { font-size:1.669vh; /* 0.94vw, 18px */ } /* +convert to vh */
+.normal { font-size:2.225vh; /* 1.25vw, 24px */ }
+.semi-large { font-size:3.337vh; /* 1.9vw, 36px */ }
+.large { font-size:4.449vh; /* 2.5vw, 48px */ }
+.x-large { font-size:5.098vh /* 2.865vw, 55px */ }
+.xx-large { font-size:5.561vh; /* 3.125vw, 60px */ }
+.xxx-large { font-size:7.415vh; /* 4.1667vw, 80px */ }
+
+.lh-24 { line-height: 2.225vh; }
+.lh-29 { line-height: 2.688vh; } /* 1.511vw, 29px */
+.lh-30 { line-height: 2.781vh; } 
+.lh-42 { line-height: 3.899vh; } /* 42px */
+
+/*** LOGIN ***/
+
+h1.xtra-lg { font-size: 3.125vw; font-weight: 600; color:#fff } /* 60px */
+clr-icon:hover, .cl-loginbtn { cursor: pointer; }
+.cl-loginform input.lg, .cl-loginstat { font-size: 1.25vw; } /* 24px */
+.cl-loginform input { padding: 0.7813vw; margin-bottom:0.7813vw; background: rgba(255,0,0,.35);
+    color: white; } /* 15px */
+.cl-loginform input::placeholder { color:#fff; opacity:.7  }
+.cl-loginform input:focus { outline:0; background: rgba(255,0,0,.5); }
+.cl-loginform * { font-family: 'Raleway', sans-serif !important; }
+.cl-loginform button, .cl-loginform input { border:0; }
+.cl-loginform > div > div, .cl-block-padding { padding:1.5625vw; background:rgba(255, 0, 0, .35);} /* 30px */
+.cl-loginform { padding: 8.9998vw; color:#fff; }
+.cl-loginbtn clr-icon { margin-right: -0.417vw; width:2.5vw; height:2.5vw; } /* -8px */
+.cl-loginbtn p { margin-right: 0.2605vw; } /* 5px */
+.cl-loginform, .admin-grid { 
+  background-image:url('adminbackground.jpg');
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*** MAIN ***/
+
+.crud-form { background:rgba(255, 0, 0, .35); color:#fff; }
+
+.cl-tile { background: rgba(255,0,0,.35); color:white;} 
+.cl-tile:hover { background:  rgba(255,0,0,.45); cursor: pointer; } 
+
+.temp-font *:not(.uk-icon-github) { font-family: 'Raleway', sans-serif !important; }
+.admin-grid .uk-grid-small { margin-left: -0.7813vw !important; }
+.admin-grid .uk-grid-small > * { padding-left: 0.7813vw !important }
+.admin-grid clr-icon { width:1.9vw; height:1.9vw; margin-right: -0.15vw; }
+.admin-grid clr-icon.sm { width:1.6vw; height:1.6vw; }
+.admin-role { font-size:1.719vw; }
+.uk-icon-github { font-size:1.9vw; }
+a, a:hover { text-decoration: none; color:inherit; }
+.cl-row:hover { background: rgba(255,0,0,.45); cursor: pointer; }
+
+.container { /*background-color: #ddd;*/ position: relative; width: 100%; padding-top: 100%; border-radius: 100%; border: solid 0.371vh #fff; }
+.text { position:  absolute; top: 0; left: 0; bottom: 0; right: 0; }
+.hand {
+    position: absolute; width: 0.371vh; /* 4px */
+    height: 30%; background-color: #ffff;
+    bottom: calc(50% - 0.093vh); left: calc(50% - 0.093vh); /* 1px */
+    transform-origin: 50% 100%;
+}
+.minute { height: 42%; }
+.second { height: 35%; } 
+.hand.second { width:0.186vh !important; } /* 2px */
+
+
+.cl-crudform input::placeholder, .cl-crudform select::placeholder { color:#fff; opacity:.7  } 
+.cl-crudform input:focus, .cl-crudform select:focus { outline:0; background: rgba(255,0,0,.5); }
+
+.cl-crudform input, .cl-crudform select { padding: 0.7813vw; margin-bottom:0.7813vw; border:0; font-size: 1.25vw; background: rgba(255,0,0,.35); color: white; }
+.upl-ico { background: rgba(255,0,0,.35); margin:0 !important;}
+
+.cl-crudform textarea::placeholder { color:#fff; opacity:.7  } 
+.cl-crudform textarea:focus { outline:0; background: rgba(255,0,0,.5);  } 
+.cl-crudform textarea { padding: 0.7813vw; margin-bottom:0.7813vw; border:0; font-size: 1.25vw; min-height: 15vh; background: rgba(255,0,0,.35); color: white; }
+
+#accountsModal.uk-modal, #structureModal.uk-modal { background:transparent !important; }
+
+.admin-grid > div:first-child { padding:1.391vh; }
+@media (min-width:960px) { 
+    .admin-grid > div:first-child { padding:12.5vh 8.7vw; }
+}
+    
+/*** PADDING ***/
+
+/* px/vw adapted from a resolution of 1920x1080 */
+
+.padding-t-25 { padding-top:2.32vh; /*1.303vw*/ }
+/*.padding-t-30 { padding-top:1.5625vw; }*/
+.padding-t-50 { padding-top:4.634vh; /* 2.605vw */ }
+.padding-t-40 { padding-top:4.09vh; /* 2.605vw */ }
+.padding-b-40 { padding-bottom:4.09vh; /* 2.605vw */ }
+.padding-b-25 { padding-bottom:2.32vh; }
+.padding-b-15 { padding-bottom:1.391vh; } /* 0.7813vw */
+.padding-b-10 { padding-bottom:0.927vh; } /* 0.7813vw */
+.padding-7 { padding:0.649vh 0.365vw; /* 0.365vw */ }
+.padding-33 { padding:3.059vh 1.719vw; }
+.padding-33-15-33-33 { padding:3.059vh 0.7813vw 3.059vh 1.719vw; }
+.padding-33-33-33-15 { padding:3.059vh 1.719vw 3.059vh 0.7813vw; }
+.padding-30-20-0-0 { padding: 2.781vh 1.042vw 0 0; } /* 1.5625vw */
+.padding-30-10-0-0 { padding: 2.781vh 0.521vw 0 0; }
+.padding-l-5 { padding-left: 0.2605vw; }
+.padding-r-5 { padding-right: 0.2605vw; }
+
+.height-1-2 { height: calc(50% - 0.649vh); } /* 7px */
+.height-1-3 { height: calc(33.333% - 0.8719vh)} /* 0.49vw 9.4px */
+.rdj-height-66 { height: calc(100% - 6.117vh); } /* 3.438vw 66px */

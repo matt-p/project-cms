@@ -1,0 +1,10 @@
+<header id="header" class="position-fixed-top grid-x grid-padding-x align-top">
+    <div id="hf" class="small-6 padding-horizontal-2">
+        <a href="/" style="color:inherit"><clr-icon shape="camera" style="height:3rem; width:3rem;"></clr-icon></a>
+    </div>
+    <div class="grid-x grid-padding-x align-right small-6 padding-horizontal-2 align-self-middle">
+        <div style="font-family: 'Oxygen', sans-serif; font-weight: bold">
+            <a href="../{{p.page_name}}" ng-repeat="p in pages" class="{{p.page_name == '_header' || p.page_name == '_footer' ? '' : 'padding-left-1' }}" style="color:inherit">{{p.page_name == '_header' || p.page_name == '_footer' ? '' : p.page_name == 'index' ? 'home' : p.page_name | replaceDash | camelCase}}</a>
+        </div>
+    </div>
+</header>

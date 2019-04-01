@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="uk-height-1-1">
+    <head>
+        <title>Localhost | Admin</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="/appcss.css">
+        <link rel="stylesheet" href="https://unpkg.com/clarity-icons/clarity-icons.min.css">
+        <script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js"></script>
+        <script src="https://unpkg.com/clarity-icons/clarity-icons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">var timerStart = Date.now() / 1000;</script>
+    </head>
+    <body ng-app="app" class="uk-height-1-1">
+        <div ng-controller="loginCTRL" class="uk-height-1-1">
+            <div class="cl-loginform uk-vertical-align uk-height-1-1" ng-show="verdict!=='Valid User'">
+                <div class="uk-width-1-1 uk-vertical-align-middle">
+                    <div class="uk-width-large-1-2 uk-container-center">
+                        <h1 class="xtra-lg" style="padding-bottom:2.6042vw">Login</h1>
+                        <form>
+                            <input ng-model="name" class="uk-width-1-1 lg" type="text" id="form-name" placeholder="Username"><br>
+                            <input ng-model="password" class="uk-width-1-1 lg" type="text" placeholder="Password"><br>
+                        </form>
+                        <div class="uk-clearfix" style="padding-top:1.82292vw">
+                            <div class="uk-float-left cl-loginstat"><div ng-bind-html="verdict"></div></div>
+                            <div class="cl-loginbtn uk-float-right uk-flex uk-visible-hover uk-animation-hover" ng-click="authUser()">
+                                <div class="uk-vertical-align uk-hidden uk-animation-slide-right">
+                                    <p class="uk-vertical-align-middle">Log In</p>
+                                </div>
+                                <clr-icon shape="login"></clr-icon>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+            
+        <div ng-show="verdict=='Valid User'" class="admin-grid temp-font uk-height-viewport">
+            <div class="uk-grid uk-grid-small uk-height-1-1">
+                <div class="uk-width-large-1-2 ">
+                    
+                    <div ng-controller="fieldCTRL" class="height-1-2 uk-display-block">
+                        <div ng-show="!data && !accounts && !structure" class="cl-tile uk-height-1-1">
+                            <div ng-click="openData()" class="uk-height-1-1">
+                                <div class="rdj-height-66 padding-33">
+                                <div class="uk-position-relative uk-height-1-1" style="background:;">
+                                    <div ng-init="getAll()"></div>
+                                    <h1 class="xx-large semi-bold lh-42 uk-margin-remove">Data</h1>
+                                    <h1 class="xx-large semi-bold lh-42 uk-margin-remove padding-t-50">
+                                        <!--
+                                        /*************************************************
+                                        * Title: How to Show Angularjs Filtered Count source code
+                                        * Author: Not Specified
+                                        * Date: Not Specified
+                                        * Code version: Not Specified 
+                                        * Availability: https://www.w3docs.com/snippets/angularjs/how-to-show-angularjs-filtered-count.html
+                                        *************************************************/ 
+                                        -->
+                                        <span class="xxx-large bold padding-r-5">{{fields.length}}</span> Fields
+                                    </h1>
+                                    <div class="uk-flex">
+                                        <!--
+                                        /*************************************************
+                                        * Title: AngularJS: Count Filtered Items - Stack Overflow source code
+                                        * Author: PSL
+                                        * Date: 2014
+                                        * Code version: Not Specified 
+                                        * Availability: https://stackoverflow.com/questions/26087509/angularjs-count-filtered-items 
+                                        *************************************************/ 
+                                        -->
+                                        <h3 title="Integer" class="normal lh-24 padding-30-20-0-0" >{{field_types.Integer.count}} 
+                                            <clr-icon shape="calculator" class="padding-l-5"></clr-icon></h3>
+                                        <h3 title="Text" class="normal lh-24 padding-30-20-0-0">{{field_types.Text.count}} 
+                                            <clr-icon shape="sort-by" class="padding-l-5"></clr-icon></h3>
+                                        <h3 title="Textarea" class="normal lh-24 padding-30-20-0-0" >{{field_types.Textarea.count}} 
+                                            <clr-icon shape="list" class="padding-l-5"></clr-icon></h3>
+                                        <h3 title="Date" class="normal lh-24 padding-30-20-0-0" >{{field_types.Date.count}} 
+                                            <clr-icon shape="calendar" class="padding-l-5"></clr-icon></h3>
+                                        <h3 title="Image" class="normal lh-24 padding-30-20-0-0">{{field_types.Image.count}} 
+                                            <clr-icon shape="picture" class="padding-l-5"></clr-icon></h3>
+                                        <h3 title="Audio" class="normal lh-24 padding-30-20-0-0">{{field_types.Audio.count}} 
+                                            <clr-icon shape="music-note" class="padding-l-5"></clr-icon></h3>
+                                        <h3 title="Video" class="normal lh-24 padding-30-20-0-0">{{field_types.Video.count}}
+                                            <clr-icon shape="film-strip" class="padding-l-5"></clr-icon></h3>
+                                    </div>
+                                    <clr-icon class="uk-position-bottom-right" shape="plus-circle"></clr-icon>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="data == true" class="uk-position-top-left uk-position-z-index uk-width-1-1 uk-height-1-1" 
+                            style="padding: 12.5vh 8.7vw;">
+                            <div class="uk-position-relative uk-height-1-1">
+                                <a ng-click="closeData()" class="uk-position-top-right padding-7 uk-display-block uk-modal-close">
+                                    <clr-icon shape="times-circle" style="color:#fff"></clr-icon></a>
+                                <div class="crud-form w-medium uk-grid uk-grid-width-1-2 uk-height-1-1 uk-grid-collapse">
+                                    <div class="padding-33-15-33-33" style="max-height: 100%; overflow: hidden;">
+                                <h2 class="large semi-bold lh-30 padding-b-40 uk-margin-remove">Data</h2>
+                                <div ng-init="getAll()" style="overflow-y:auto; overflow-x:hidden; max-height:calc(100% - 7vh)">
+                                    <div ng-repeat="field in fields | filter:search" class="cl-row uk-grid uk-grid-collapse uk-visible-hover">
+                                        <div class="uk-width-4-10 normal">{{ field.field_name }}</div>
+                                        <div class="uk-width-2-10 normal uk-text-center">
+                                            <clr-icon ng-if="field.field_type=='Integer'" title="Integer" shape="calculator"></clr-icon>
+                                            <clr-icon ng-if="field.field_type=='Text'" title="Text" shape="sort-by"></clr-icon>
+                                            <clr-icon ng-if="field.field_type=='Textarea'" title="Textarea" shape="list"></clr-icon>
+                                            <clr-icon ng-if="field.field_type=='Date'" title="Date" shape="calendar"></clr-icon>
+                                            <clr-icon ng-if="field.field_type=='Image'" title="Image" shape="picture"></clr-icon>
+                                            <clr-icon ng-if="field.field_type=='Audio'" title="Audio" shape="music-note"></clr-icon>
+                                            <clr-icon ng-if="field.field_type=='Video'" title="Video" shape="film-strip"></clr-icon>
+                                        </div>                                    
+                                        <!-- 
+                                        /*************************************************
+                                        * Title: AngularJS: how do I show ellipses using limitTo filter only when a string exceeds the limit - Stack Overflow source code
+                                        * Author: BeingSuman
+                                        * Date: 2016
+                                        * Code version: Not Specified 
+                                        * Availability: https://stackoverflow.com/questions/38428280/angularjs-how-do-i-show-ellipses-using-limitto-filter-only-when-a-string-exceed
+                                        *************************************************/ 
+                                        -->
+                                        <div class="uk-width-2-10 normal" title="{{field.field_value}}">{{ field.field_value | limitTo: 10 }}{{field.field_value.length > 10 ? '...' : ''}}</div>
+                                        <div class="uk-width-2-10 uk-text-right uk-hidden">
+                                            <clr-icon ng-click="readOne(field.id)" title="Edit" shape="pencil"></clr-icon>
+                                            <clr-icon ng-click="deleteField(field.id, field.field_type, field.field_value)" title="Delete" shape="trash"></clr-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                    <div class="padding-33-33-33-15 cl-crudform uk-vertical-align">
+                                        <div class="uk-vertical-align-middle uk-width-1-1">
+                                        <form>
+                                            <div ng-show="updatemodal == false && createmodal == false" class="uk-text-center uk-width-1-1">
+                                                <clr-icon ng-click="showCreateForm()" shape="plus-circle"></clr-icon>
+                                            </div>
+                                            <div ng-show="updatemodal == true || createmodal == true">
+                                                <div><input ng-model="id" type="number" class="uk-width-1-1" placeholder="ID (Automatic)" disabled></div>
+                                                <div><input ng-model="field_name" type="text" id="form-name" class="uk-width-1-1" placeholder="Name"></div>
+                                                <!-- 
+                                                /*************************************************
+                                                * Title: Angular Select Boxes source code
+                                                * Author: Not Specified
+                                                * Date: Not Specified
+                                                * Code version: Not Specified 
+                                                * Availability: from https://www.w3schools.com/angular/angular_select.asp
+                                                *************************************************/ 
+                                                -->
+                                                <select ng-show="createmodal==true" id="form-type" ng-model="field_type" class="uk-width-1-1">
+                                                      <option value="" disabled selected>-- Type --</option>
+                                                      <option>Integer</option><option>Text</option><option>Textarea</option><option>Date</option>
+                                                      <option>Image</option><option>Audio</option><option>Video</option>
+                                                </select>
+                                                <input ng-show="updatemodal==true" class="uk-width-1-1" value="{{field_type}}" disabled>
+                                                <!-- 
+                                                /*************************************************
+                                                * Title: angularjs - Angular 4 ng-show - Stack Overflow
+                                                * Author: SmartestVEGA
+                                                * Date: 2018
+                                                * Code version: Not Specified 
+                                                * Availability: from https://stackoverflow.com/questions/50679774/angular-4-ng-show/50681387
+                                                *************************************************/ 
+                                                -->
+                                                <div ng-show="field_type=='Integer'">
+                                                    <input ng-model="field_value" type="number" id="form-value" class="uk-width-1-1" placeholder="Int"></div>
+                                                <div ng-show="field_type=='Text'">
+                                                    <input ng-model="field_value" type="text" id="form-value" class="uk-width-1-1" placeholder="Text"></div>
+                                                <div ng-show="field_type=='Textarea'">
+                                                    <textarea name="value" ng-model="field_value" class="uk-width-1-1" id="form-value" placeholder="Textarea"></textarea></div>
+                                                <div ng-show="field_type=='Date'">
+                                                    <input ng-model="field_value" type="date" id="form-value" class="uk-width-1-1" value="{{updatemodal==true ? field_value : '' }}">
+                                                </div> 
+                                            </div>
+                                        </form>
+
+                                        <div ng-show="createmodal==true">
+                                            <div ng-if="field_type=='Integer' || field_type=='Text' || field_type=='Textarea' || field_type=='Date'">
+                                                <clr-icon ng-click="createField()" title="Create" shape="plus-circle"></clr-icon>
+                                                <clr-icon ng-click="cancelForm(); clearForm()" title="Cancel" shape="times-circle"></clr-icon>
+                                            </div>
+                                            <!--
+                                            /*************************************************
+                                            * Title: File Upload with AngularJS and NodeJS | CipherTrick source code
+                                            * Author: Shaikh, R
+                                            * Date: 2015
+                                            * Code version: Not Specified 
+                                            * Availability: https://ciphertrick.com/2015/12/07/file-upload-with-angularjs-and-nodejs/
+                                            *************************************************/
+                                            -->
+                                            <div ng-if="field_type=='Image' || field_type=='Video' || field_type=='Audio'" ng-controller="uploadCTRL as up">
+                                                <p style="display: none">Creating {{field_type}}</p>
+                                                <form name="up.upload_form">
+                                                    <label for="fupload" class="uk-flex">
+                                                        <clr-icon title="Upload" class="upl-ico" shape="upload" 
+                                                                  style="padding:0.58vw 0.7813vw"></clr-icon>
+                                                        <input ng-model="up.file.name" placeholder="Upload" style="width:calc(100% - 1.4366vw);">
+                                                    </label>
+                                                    <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="" accept="" id="fupload" ngf-max-size="20MB" style="display: none"/>                                        
+                                                </form>
+                                                <clr-icon ng-click="up.submit(); createField();" title="Create" shape="plus-circle"></clr-icon>
+                                                <clr-icon ng-click="cancelForm(); clearForm()" title="Cancel" shape="times-circle"></clr-icon>
+                                            </div>
+                                        </div>
+
+                                        <div ng-show="updatemodal==true">                                
+                                            <div ng-if="field_type=='Integer' || field_type=='Text' || field_type=='Textarea' || field_type=='Date'">
+                                                <clr-icon ng-click="updateField()" title="Create" shape="circle-arrow"></clr-icon>
+                                                <clr-icon ng-click="cancelForm(); clearForm()" title="Cancel" shape="times-circle"></clr-icon>
+                                            </div>
+                                            <div ng-if="field_type=='Image' || field_type=='Video' || field_type=='Audio'">
+                                                <p class="uk-hidden">Editing {{field_type}}</p>
+                                                <img ng-if="field_type=='Image'" src="../uploads/{{field_value}}" class="padding-7" style="max-width:200px; background: #fff; margin-bottom:0.7813vw;">
+                                                <audio ng-if="field_type=='Audio'" controls><source ng-src="{{field_value | trustUrl}}" type="audio/mpeg"></audio>
+                                                <video ng-if="field_type=='Video'" class="padding-7" style="background: #fff; margin-bottom:0.7813vw; max-width: 200px;" controls>
+                                                  <source src="{{field_value | trustUrl}}" type="video/mp4">
+                                                </video>
+                                                <div ng-controller="uploadCTRL as up">
+                                                    <form name="up.upload_form">
+                                                        <label for="uupload" class="uk-flex">
+                                                            <clr-icon title="Upload" class="upl-ico"shape="upload" 
+                                                                      style="padding:0.58vw 0.7813vw"></clr-icon>
+                                                            <input ng-model="up.file.name" placeholder="Upload" style="width:calc(100% - 1.4366vw);">
+                                                        </label>
+                                                        <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="" accept="" id="uupload" ngf-max-size="20MB" style="display: none"/>                                        
+                                                    </form>
+                                                    <clr-icon ng-click="up.submit(); updateField();" title="Update" shape="circle-arrow"></clr-icon>
+                                                    <clr-icon ng-click="cancelForm(); clearForm()" title="Cancel" shape="times-circle"></clr-icon>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="padding-7"></div>
+                    
+                    <div ng-controller="pageCTRL" class="height-1-2 uk-display-block">
+                        <div ng-show="!data && !accounts && !structure" class="cl-tile uk-height-1-1">
+                            <div ng-click="openStructure()" class="uk-height-1-1">
+                                <div class="rdj-height-66 padding-33">
+                                    <div class="uk-position-relative uk-height-1-1" style="background:;">
+                                        <div ng-init="getAll()"></div>
+                                        <h1 class="xx-large semi-bold lh-42 uk-margin-remove">Structure</h1>
+                                        <h1 class="xx-large semi-bold lh-42 uk-margin-remove padding-t-50">
+                                            <span class="xxx-large bold padding-r-5">{{pages.length}}</span> Pages
+                                        </h1>
+                                        <div class="uk-flex">
+                                            <h3 title="Pages" class="normal lh-24 padding-30-20-0-0">{{pages.length}} 
+                                                <clr-icon shape="file" class="padding-l-5"></clr-icon></h3>
+                                            <h3 title="Sub-Pages" class="normal lh-24 padding-30-20-0-0">0 
+                                                <clr-icon shape="file-group" class="padding-l-5"></clr-icon></h3>
+                                            <h3 title="Tiers" class="normal lh-24 padding-30-20-0-0">0 
+                                                <clr-icon shape="layers" class="padding-l-5"></clr-icon></h3>
+                                        </div>
+                                        <clr-icon class="uk-position-bottom-right" shape="plus-circle"></clr-icon>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div ng-show="structure == true" class="uk-position-absolute uk-width-1-1 uk-height-1-1" 
+                            style="padding: 12.5vh 8.7vw; top:0; left:0; z-index:999">
+                            <div class="uk-position-relative uk-height-1-1">
+                                <a ng-click="closeStructure()" class="uk-position-top-right padding-7 uk-display-block"><clr-icon shape="times-circle" style="color:#fff"></clr-icon></a>
+                                <div class="crud-form w-medium uk-grid uk-grid-width-1-2 uk-height-1-1 uk-grid-collapse">
+                                    <div class="padding-33-15-33-33">
+                                        <h2 class="large semi-bold lh-30 uk-margin-remove">Structure</h2>
+                                        <div ng-init="getAll()" class="padding-t-40" style="overflow-y:auto; overflow-x:hidden; max-height:calc(100% - 7vh)">
+                                            <div ng-repeat="page in pages | filter:search" class="cl-row uk-grid uk-grid-collapse uk-visible-hover" style="height:1.9vw;">
+                                                <div class="uk-width-4-10 normal" style="text-transform: capitalize;">{{ page.page_name }}</div>
+                                                <div class="uk-width-4-10 normal">{{ page.page_file }}</div>
+                                                <div class="uk-width-2-10 uk-text-right uk-hidden">
+                                                    <clr-icon ng-click="readOne(page.id)" title="Edit" shape="pencil"></clr-icon>
+                                                    <clr-icon ng-click="deletePage(page.id, page.page_name)" title="Delete" shape="trash"></clr-icon>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="padding-33-33-33-15 cl-crudform uk-vertical-align">
+                                        <form id="form-dinminder" class="uk-vertical-align-middle uk-width-1-1">
+                                            <div ng-show="updatemodal == false && createmodal == false" class="uk-text-center uk-width-1-1">
+                                                <clr-icon ng-click="showCreateForm()" shape="plus-circle"></clr-icon>
+                                            </div>
+                                            <div ng-show="updatemodal == true || createmodal == true">
+                                                <input ng-model="id" type="number" class="uk-width-1-1" placeholder="ID (Automatic)" disabled><br>
+                                                <input ng-model="page_name" type="text" class="uk-width-1-1" id="form-name" placeholder="Name"><br>
+                                                <textarea class="uk-width-1-1" ng-model="file_content" id="form-value" placeholder="Page"></textarea>
+                                                <clr-icon ng-if="createmodal == true" ng-click="createPage()" title="Create" shape="plus-circle"></clr-icon>
+                                                <clr-icon ng-if="updatemodal == true" ng-click="updatePage()" title="Update" shape="circle-arrow"></clr-icon>
+                                                <clr-icon ng-if="updatemodal == true || createmodal == true" ng-click="cancelForm(); clearForm()" title="Cancel" shape="times-circle"></clr-icon>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="uk-width-large-1-2">
+                    <div class="uk-visible-small padding-7"></div>
+                    <div ng-show="!data && !accounts && !structure" class="cl-tile uk-display-block height-1-3">
+                        <div class="rdj-height-66 padding-33">
+                            <div class="uk-flex uk-position-relative uk-height-1-1" style="background:;">
+                                
+                                <div class="uk-flex uk-width-1-4 uk-height-1-1 uk-visible-large">
+                                    <!--
+                                    /*************************************************
+                                    * Title: World Clocks
+                                    * Author: Hutchinson, D
+                                    * Date: Not Specified 
+                                    * Code version: Not Specified 
+                                    * Availability: https://codepen.io/donovanh/pen/vEjywy
+                                    *************************************************/
+                                    -->
+                                    <div class="clock uk-flex uk-flex-middle uk-height-1-1 uk-width-1-1" >
+                                        <div class="container">
+                                            <div class="text"></div>
+                                            <div class="b hand hour"></div>
+                                            <div class="b hand minute"></div>
+                                            <div class="b hand second"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="uk-flex-item-auto uk-flex uk-flex-middle uk-flex-center">
+                                    <div class="uk-text-center">
+                                        <h1 class="x-large semi-bold lh-42 uk-margin-remove padding-b-10">{{display_name}}</h1>
+                                        <h3 class="admin-role w-medium lh-24 padding-b-15">{{user_type}}</h3>
+                                        <h3 class="admin-role lh-24 uk-invisible">-</h3>
+                                        <div ng-bind-html="dt|dateSuffix"></div>
+                                    </div>
+                                </div>
+                                <clr-icon ng-click="signOut()" class="uk-position-bottom-right" shape="logout"></clr-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding-7"></div>
+                    <div ng-show="!data && !accounts && !structure" class="cl-tile uk-display-block height-1-3">
+                        <div class="rdj-height-66 padding-33">
+                            <div class="uk-position-relative uk-height-1-1" style="background:;">
+                                <h2 class="large semi-bold lh-30 uk-margin-remove padding-b-15">System</h2>
+                                <h3 class="normal lh-24 uk-invisible">-</h3>
+                                <h3 class="w-medium normal lh-29">
+                                    ExpressJS, 276 Modules<br>
+                                    MariaDB 10.1.37, {{conf_db}}<br>
+                                    {{conf_user}}@{{conf_host}}<br>
+                                    Load-Time {{someData | number:3}} s<br>
+                                </h3>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding-7"></div>
+                    
+                    <div ng-if="user_type == 'Administrator'" class="uk-grid uk-grid-small height-1-3">
+                        <div ng-controller="userCTRL" class="uk-width-large-1-2">
+                            <div ng-show="!data && !accounts && !structure" ng-click="openAccounts()" class="cl-tile uk-display-block uk-height-1-1">
+                                <div class="rdj-height-66 padding-33">
+                                    <div class="uk-position-relative uk-height-1-1" style="background:;">
+                                        <div ng-init="getAll()"></div>
+                                        <h2 class="large semi-bold lh-30 uk-margin-remove">Accounts</h2>
+                                        <h2 class="large semi-bold lh-30 padding-t-40 uk-margin-remove">
+                                            <span class="xx-large bold">{{users.length}}</span> Users</h2>
+                                        <div class="uk-flex">
+                                            <h3 title="Administrator" class="small lh-24 padding-30-10-0-0">{{types.Administrator.count}}
+                                                <clr-icon class="sm padding-l-5" shape="administrator"></clr-icon></h3>
+                                            <h3 title="Editor" class="small lh-24 padding-30-10-0-0">{{types.Editor.count}}
+                                                <clr-icon class="sm padding-l-5" shape="user"></clr-icon></h3>
+                                        </div>
+                                        <clr-icon class="uk-position-bottom-right" shape="plus-circle"></clr-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="accounts == true" class="uk-position-absolute uk-width-1-1 uk-height-1-1" 
+                                     style="padding: 12.5vh 8.7vw; top:0; left:0;">
+                                <div class="uk-height-1-1 uk-position-relative">
+                                    <a ng-click="closeAccounts()" class="uk-position-top-right padding-7 uk-display-block"><clr-icon shape="times-circle" style="color:#fff"></clr-icon></a>
+                                    <div class="crud-form w-medium uk-grid uk-grid-width-1-2 uk-grid-collapse uk-height-1-1">
+                                        <div class="padding-33-15-33-33">
+                                            <h2 class="large semi-bold lh-30 uk-margin-remove">Accounts</h2>
+                                            <div ng-init="getAll()" class="padding-t-40" style="overflow-y:auto; overflow-x:hidden; max-height:calc(100% - 7vh)">
+                                                <div ng-repeat="user in users | filter:search" class="cl-row uk-grid uk-grid-collapse uk-visible-hover">
+                                                    <div class="uk-width-4-10 normal">{{ user.name }}</div>
+                                                    <div class="uk-width-2-10 normal">{{ user.password }}</div>
+                                                    <div class="uk-width-2-10 uk-text-center">
+                                                        <clr-icon ng-if="user.type=='Administrator'" title="Administrator" shape="administrator"></clr-icon>
+                                                        <clr-icon ng-if="user.type=='Editor'" title="Editor" shape="user"></clr-icon>
+                                                    </div>
+                                                    <div class="uk-width-2-10 uk-text-right uk-hidden">
+                                                        <clr-icon ng-click="readOne(user.id)" title="Edit" shape="pencil"></clr-icon>
+                                                        <clr-icon ng-click="deleteUser(user.id)" title="Delete" shape="trash"></clr-icon>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="padding-33-33-33-15 cl-crudform uk-vertical-align">
+                                            <form id="form-dinminder" class="uk-vertical-align-middle uk-width-1-1">
+                                                <div ng-show="updatemodal == false && createmodal == false" class="uk-text-center uk-width-1-1">
+                                                    <clr-icon ng-click="showCreateForm()" shape="plus-circle"></clr-icon>
+                                                </div>
+                                                <div ng-show="updatemodal == true || createmodal == true">
+                                                <input ng-model="id" type="number" class="uk-width-1-1" placeholder="ID (Automatic)" disabled><br>
+                                                <input ng-model="name" type="text" id="form-name" placeholder="Name" class="uk-width-1-1"><br>
+                                                <input ng-model="password" type="text" placeholder="Password" class="uk-width-1-1"><br>
+                                                <select ng-model="type" id="form-type" class="uk-width-1-1">
+                                                    <option selected disabled>-- TYPE --</option>
+                                                    <option value="Administrator">Administrator</option>
+                                                    <option value="Editor">Editor</option>
+                                                </select>
+                                                <clr-icon ng-if="createmodal == true" ng-click="createUser()" title="Create" shape="plus-circle"></clr-icon>
+                                                <clr-icon ng-if="updatemodal == true" ng-click="updateUser()" title="Update" shape="circle-arrow"></clr-icon>
+                                                <clr-icon ng-if="updatemodal == true || createmodal == true" ng-click="cancelForm(); clearForm()" title="Cancel" shape="times-circle"></clr-icon>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="uk-visible-small padding-7"></div>
+                        <div ng-show="!data && !accounts && !structure" class="uk-width-large-1-2 uk-visible-large" style="color:#fff">
+                            <a href="/" class="cl-tile uk-display-block height-1-2">
+                                <div class="uk-flex uk-flex-middle uk-flex-center uk-height-1-1"><clr-icon shape="world"></clr-icon></div>
+                            </a>
+                            <div class="padding-7"></div>
+                            <a href="https://www.github.com" target="_blank" class="cl-tile uk-display-block height-1-2">
+                                <div class="uk-flex uk-flex-middle uk-flex-center uk-height-1-1"><span class="uk-icon-github"></span></div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div ng-if="user_type == 'Editor'" class="uk-grid uk-grid-small height-1-3">
+                        <div class="uk-visible-small padding-7"></div>
+                        <div ng-show="!data && !accounts && !structure" class="uk-width-1-1 uk-visible-large" style="color:#fff">
+                            <a href="/" class="cl-tile uk-display-block height-1-2">
+                                <div class="uk-flex uk-flex-middle uk-flex-center uk-height-1-1"><clr-icon shape="world"></clr-icon></div>
+                            </a>
+                            <div class="padding-7"></div>
+                            <a href="https://www.github.com" target="_blank" class="cl-tile uk-display-block height-1-2">
+                                <div class="uk-flex uk-flex-middle uk-flex-center uk-height-1-1"><span class="uk-icon-github"></span></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script>
+    /*************************************************
+    * Title: World Clocks
+    * Author: Hutchinson, D
+    * Date: Not Specified 
+    * Code version: Not Specified 
+    * Availability: https://codepen.io/donovanh/pen/vEjywy
+    *************************************************/
+    function runClock() {
+      var now = new Date()
+      var hour = now.getHours() % 12
+      var min  = now.getMinutes()
+      var sec  = now.getSeconds()
+      var ms   = now.getMilliseconds()
+      var clock = document.querySelector("div.container")
+      var hourHand = clock.querySelector("div.hour")
+      var minHand  = clock.querySelector("div.minute")
+      var secHand  = clock.querySelector("div.second")
+      var hourRotation = 30 * hour + (0.5 * min)
+      var minRotation = 6 * min + (0.1 * sec)
+      var secRotation = 6 * sec + 0.006 * ms
+      hourHand.style.transform = "rotate(" + hourRotation + "deg)"
+      minHand.style.transform = "rotate(" + minRotation + "deg)"
+      secHand.style.transform = "rotate(" + secRotation + "deg)"
+      requestAnimationFrame(runClock)
+    }
+    runClock();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload-shim.min.js"></script>
+	<script src="/app.js"></script>
+    </body>
+</html>

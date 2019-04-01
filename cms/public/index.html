@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="frontendCTRL" ng-init="getAll()">
+    <head>
+        <title>Localhost | Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation-prototype.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Allan:400,700|Titillium+Web|Oxygen:300,400,700" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://unpkg.com/clarity-icons/clarity-icons.min.css">
+        <script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js"></script>
+        <script src="https://unpkg.com/clarity-icons/clarity-icons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            header { transition: 0.2s; color:white; background:transparent; }
+            #hf { padding-top: 1rem; padding-bottom: 1rem; }
+            html { scroll-behavior: smooth; }
+            .gs { display: block; position: relative; top: -50px; visibility: hidden; }
+            .square:after { content: ""; display: block; padding-bottom: 100%; }
+            .background { background-position: center; background-repeat: no-repeat; background-size: cover; }
+            .height-50vh { height:50vh; }
+            .height-100vh { height:100vh; }
+            .fs_menu { height:calc(100vh - 50px); }
+
+            .font-allan { font-family:'Allan', cursive; }
+            .font-titillium-b { font-family: 'Titillium Web', sans-serif; font-weight: bold; }
+            .font-titillium { font-family: 'Titillium Web', sans-serif; }
+            .font-oxygen { font-family: 'Oxygen', sans-serif; font-weight: bold }
+            .font-bold { font-weight: bold; }
+
+            .font-100 { font-size:100px; }
+            .font-80 { font-size:80px; }
+            .font-75 { font-size:75px; }
+
+            .col-white { color:#fff !important; }
+            .col-black { color:#000 !important; }
+
+            .square:hover .tile { visibility: visible; cursor:pointer }
+            .tile { visibility: hidden; background:rgba(0,0,0,.5) }
+        </style>
+    </head>
+    <body>
+      
+    <div ng-include="'_header.html'"></div>
+      
+    <div class="background height-100vh" style="background-image:url('../uploads/{{home_bkimg01.value}}');">     
+        <div class="position-absolute text-right" style="bottom:0; right:0; margin:0 80px 80px 0">
+            <div class="col-white">
+                <h2 class="font-titillium-b">{{welcome_l1.value}}</h2>
+                <h1 class="margin-0 font-80 font-titillium col-black" style="line-height:60px;">{{welcome_l2.value}}</h1>
+                <h2 class="font-80 font-allan font-bold" style="margin-right:30px; line-height:60px; margin-top:20px;">{{welcome_l3.value}}</h2>
+                <a href="{{welcome_btnlink.value}}" target="_self" class="hollow button display-inline-block col-white" 
+                   style="margin:36px 0 .5rem 0; border:2px solid #fff;">
+                    <h5 class="margin-0 font-titillium-b">{{welcome_btntxt.value}}</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+        
+    <div id="getting-started" class="gs"></div>
+    <div class="position-relative fs_menu" style="background-image:url('../uploads/{{home_bkimg02.value}}'); background-position: 50% 28%;  background-repeat: no-repeat; background-size: cover;">
+        <div class=" padding-3">
+            <div class="padding-2">
+                <h1 class="margin-0 font-100 font-allan" style="line-height: 100px;">{{home_bltitle01p01.value}}</h1>
+                <h1 class="margin-0 font-75 font-titillium-b col-white padding-left-3" 
+            style="margin-top:-24px; margin-left:25px;">{{home_bltitle01p02.value}}</h1>
+            </div>
+            <div class="position-absolute font-oxygen" style="bottom:0; right:0; width:45%; margin:0 120px 85px 0;">
+                <div ng-bind-html="home_bldescription01.value"></div>
+            </div>
+        </div>
+    </div>
+      
+      <div class="background fs_menu" 
+           style="background:linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../uploads/{{home_bkimg03.value}}'); background-position: center;  background-repeat: no-repeat; background-size: cover;">
+            <div class="grid-x grid-padding-x align-middle align-center text-center fs_menu">
+            <div id="NoPhotos" class="col-white">
+                <h1 class="margin-0 font-allan" style="font-size: 65px; line-height: 55px; margin-left: -70%;">{{home_bltitle02p01.value}}</h1>
+                <h1 id="value" class="margin-0 font-titillium-b col-white" 
+                    style="font-size: 90px; letter-spacing: 25px; line-height: 90px;">2500000</h1>
+                <h3 class="margin-0 font-allan" style="font-size: 85px; margin-left: -15%; line-height: 85px;">{{home_bltitle02p02.value}}</h3>
+            </div>
+          </div>
+            
+        </div>
+            
+    <div class="background height-50vh hide-for-small-only" style="background-image:url('../uploads/{{home_bkimg04.value}}');">
+        <div class="grid-x grid-padding-x height-50vh align-middle align-center text-center">
+            <a href="{{service_ctalink.value}}" class="hollow button display-inline-block col-white" style="border:2px solid #fff;">
+                <h1 class="font-titillium-b margin-0">{{service_ctatxt.value}}</h1>
+            </a>
+        </div>
+    </div>   
+
+    <script>
+        /*************************************************
+        * Title: javascript - Count animation from number A to B - Stack Overflow source code
+        * Author: jfriend00
+        * Date: 2013
+        * Code version: Not Specified 
+        * Availability: https://stackoverflow.com/questions/16994662/count-animation-from-number-a-to-b
+        *************************************************/
+        function animateValue(id, start, end, duration) {
+            var obj = document.getElementById(id);
+            var range = end - start;
+            var stepTime = Math.abs(Math.floor(duration / range));
+            stepTime = Math.max(stepTime, 50);
+            var startTime = new Date().getTime();
+            var endTime = startTime + duration;
+            var timer;
+            function run() {
+                var now = new Date().getTime();
+                var remaining = Math.max((endTime - now) / duration, 0);
+                var value = Math.round(end - (remaining * range));
+                obj.innerHTML = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+                if (value == end) { clearInterval(timer); }
+            }
+            timer = setInterval(run, stepTime);
+            run();
+        }
+        /*************************************************
+        * Title: javascript - Jquery check if element is visible in viewport - Stack Overflow source code
+        * Author: Pažourek, T
+        * Date: 2016
+        * Code version: Not Specified 
+        * Availability: https://stackoverflow.com/questions/20791374/jquery-check-if-element-is-visible-in-viewport
+        *************************************************/
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+        /*************************************************
+        * Title: JavaScript Once Function source code
+        * Author: Walsh, D
+        * Date: 2014
+        * Code version: Not Specified 
+        * Availability: https://davidwalsh.name/javascript-once
+        *************************************************/
+        function once(fn, context) { 
+            var result;
+            return function() { 
+                if(fn) {
+                    result = fn.apply(context || this, arguments);
+                    fn = null;
+                } return result;
+            };
+        }
+        var canOnlyFireOnce = once(function() { animateValue("value", 1500000, 2500000, 1500); });
+        $(window).on('resize scroll', function() { if ($('#NoPhotos').isInViewport()) canOnlyFireOnce(); });
+    </script>
+        
+    <div ng-include="'_footer.html'"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/plugins/foundation.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload-shim.min.js"></script>
+    <script src="app.js"></script>
+    </body>
+</html>

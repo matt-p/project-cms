@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="frontendCTRL" ng-init="getAll()">
+    <head>
+        <title>Localhost | {{services.name | camelCase }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation-prototype.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Allan:400,700|Titillium+Web|Oxygen:300,400,700" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://unpkg.com/clarity-icons/clarity-icons.min.css">
+        <script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js"></script>
+        <script src="https://unpkg.com/clarity-icons/clarity-icons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            header { transition: 0.2s; color:white; background:transparent; }
+            #hf { padding-top: 1rem; padding-bottom: 1rem; }
+            html { scroll-behavior: smooth; }
+            .gs { display: block; position: relative; top: -50px; visibility: hidden; }
+            .square:after { content: ""; display: block; padding-bottom: 100%; }
+            .background { background-position: center; background-repeat: no-repeat; background-size: cover; }
+            .height-50vh { height:50vh; }
+            
+            .font-allan { font-family:'Allan', cursive; }
+            .font-titillium { font-family: 'Titillium Web', sans-serif; font-weight: bold; }
+            .font-oxygen { font-family: 'Oxygen', sans-serif; font-weight: bold }
+            .font-bold { font-weight: bold; }
+            
+            .font-100 { font-size:100px; }
+            .font-80 { font-size:80px; }
+            .font-75 { font-size:75px; }
+            
+            .col-white { color:#fff !important; }
+            .col-black { color:#000 !important; }
+        </style>
+    </head>
+    <body>
+        
+    <div ng-include="'_header.html'"></div>
+         
+    <div class="background height-50vh" style="background-image:url('../uploads/{{services_main.value}}');">
+        <div class="grid-x grid-padding-x align-middle align-center text-center height-50vh">
+            <h2 class="font-allan font-bold col-white font-80" style="line-height:60px; margin-top:20px;">Services</h2>
+        </div>
+    </div>    
+
+    <div class="padding-2">
+        <div class="grid-x grid-padding-x padding-vertical-1">
+            <div class="cell small-6"><img src="../uploads/{{services_wedding.value}}"></div>
+            <div class="cell small-6">
+                <h1 class="margin-0 font-allan font-100" style="line-height: 100px;">{{service_bltitle01p01.value}}</h1>
+                <h1 class="margin-0 padding-left-3 font-75 font-titillium" 
+                    style="margin:-24px 0 0 25px">{{service_bltitle01p02.value}}</h1>
+                <div class="font-oxygen" ng-bind-html="service_bltextarea01.value"></div>
+            </div>
+        </div>
+        <div class="grid-x grid-padding-x padding-vertical-1">
+            <div class="cell small-6">
+                <h1 class="margin-0 font-allan font-100" style="line-height: 100px;">{{service_bltitle02p01.value}}</h1>
+                <h1 class="margin-0 padding-left-3 font-75 font-titillium" 
+                    style="margin:-24px 0 0 25px">{{service_bltitle02p02.value}}</h1>
+                <div class="font-oxygen" ng-bind-html="service_bltextarea02.value"></div>
+            </div>
+            <div class="cell small-6"><img src="../uploads/{{services_commerical.value}}"></div>
+        </div>
+        <div class="grid-x grid-padding-x padding-vertical-1">
+            <div class="cell small-6"><img src="../uploads/{{services_fashion.value}}"></div>
+            <div class="cell small-6">
+                <h1 class="margin-0 font-allan font-100" style="line-height: 100px;">{{service_bltitle03p01.value}}</h1>
+                <h1 class="margin-0 padding-left-3 font-75 font-titillium" 
+                    style="margin:-24px 0 0 25px">{{service_bltitle03p02.value}}</h1>
+                <div class="font-oxygen" ng-bind-html="service_bltextarea03.value"></div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="background height-50vh hide-for-small-only" style="background-image:url('../uploads/{{services_cta.value}}');">
+        <div class="grid-x grid-padding-x height-50vh align-middle align-center text-center">
+            <a href="{{service_ctalink.value}}" class="hollow button display-inline-block col-white" style="border:2px solid #fff;">
+                <h1 class="font-titillium margin-0">{{service_ctatext.value}}</h1>
+            </a>
+        </div>
+    </div>      
+      
+    <div ng-include="'_footer.html'"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/plugins/foundation.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload-shim.min.js"></script>
+    <script src="app.js"></script>
+    </body>
+</html>

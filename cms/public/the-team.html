@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="frontendCTRL" ng-init="getAll()">
+    <head>
+        <title>Localhost | {{the_team.name | camelCase }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation-prototype.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Allan:400,700|Titillium+Web|Oxygen:300,400,700" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://unpkg.com/clarity-icons/clarity-icons.min.css">
+        <script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js"></script>
+        <script src="https://unpkg.com/clarity-icons/clarity-icons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            header { transition: 0.2s; color:white; background:transparent; }
+            #hf { padding-top: 1rem; padding-bottom: 1rem; }
+            html { scroll-behavior: smooth; }
+            .gs { display: block; position: relative; top: -50px; visibility: hidden; }
+            .square:after { content: ""; display: block; padding-bottom: 100%; }
+            .background { background-position: center; background-repeat: no-repeat; background-size: cover; }
+            .height-50vh { height:50vh; }
+
+            .font-allan { font-family:'Allan', cursive; }
+            .font-titillium { font-family: 'Titillium Web', sans-serif; font-weight: bold; }
+            .font-oxygen { font-family: 'Oxygen', sans-serif; font-weight: bold }
+            .font-bold { font-weight: bold; }
+
+            .font-100 { font-size:100px; }
+            .font-80 { font-size:80px; }
+            .font-75 { font-size:75px; }
+
+            .col-white { color:#fff !important; }
+            .col-black { color:#000 !important; }
+
+            .square:hover .tile { visibility: visible; cursor:pointer }
+            .tile { visibility: hidden; background:rgba(0,0,0,.5) }
+        </style>
+    </head>
+    <body> 
+      
+    <div ng-include="'_header.html'"></div>
+
+    <div class="background height-50vh" style="background-image:url('../uploads/{{team_main.value}}');">
+        <div class="grid-x grid-padding-x align-middle align-center text-center height-50vh">
+            <h2 class="font-allan font-bold col-white font-80" style="line-height:60px; margin-top:20px;">Meet The Team</h2>
+        </div>
+    </div>  
+      
+    <div class="padding-2 text-center">
+        <div class="grid-x grid-padding-x padding-vertical-1">
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_sophie.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Sophie Sharife</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{sophie_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{sophie_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_paul.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Paul McCloud</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{paul_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{paul_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_joel.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Joel Edrich</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{joel_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{joel_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+              
+          </div>
+        <div class="grid-x grid-padding-x padding-vertical-1">
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_sebastian.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Sebastian Ulav</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{sebastian_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{sebastian_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_rachel.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Rachel Wickham</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{rachel_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{rachel_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_ellie.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Ellie Thurston</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{ellie_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{ellie_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        <div class="grid-x grid-padding-x padding-vertical-1">
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_petrina.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Petrina Sokolov</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{petrina_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{petrina_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_klara.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Klara Armannsson</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{klara_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{klara_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="square width-100 position-relative">
+                    <div class="position-absolute width-100 height-100 background" 
+                         style="background-image:url('../uploads/{{team_nura.value}}');">
+                        <div class="tile grid-x align-middle align-center text-center height-100">
+                            <div class="text-left col-white">
+                                <h1 class="font-bold font-allan">Nura Abbas</h1>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Photos: </span>
+                                    <span class="cell small-6 font-oxygen">{{nura_imgcount.value}}</span>
+                                </div>
+                                <div class="grid-x align-spaced">
+                                    <span class="cell small-6 font-titillium">Specialism: </span>
+                                    <span class="cell small-6 font-oxygen">{{nura_specialism.value}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+        
+    <div ng-include="'_footer.html'"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/plugins/foundation.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload-shim.min.js"></script>
+    <script src="app.js"></script>
+    </body>
+</html>

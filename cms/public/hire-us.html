@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="frontendCTRL" ng-init="getAll()">
+    <head>
+        <title>Localhost | {{hire_us.name | camelCase }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/css/foundation-prototype.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Allan:400,700|Titillium+Web|Oxygen:300,400,700" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://unpkg.com/clarity-icons/clarity-icons.min.css">
+        <script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js"></script>
+        <script src="https://unpkg.com/clarity-icons/clarity-icons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            header { transition: 0.2s; color:white; background:transparent; }
+            #hf { padding-top: 1rem; padding-bottom: 1rem; }
+            html { scroll-behavior: smooth; }
+            .gs { display: block; position: relative; top: -50px; visibility: hidden; }
+            .square:after { content: ""; display: block; padding-bottom: 100%; }
+            .background { background-position: center; background-repeat: no-repeat; background-size: cover; }
+            .height-50vh { height:50vh; }
+
+            .font-allan { font-family:'Allan', cursive; }
+            .font-titillium-b { font-family: 'Titillium Web', sans-serif; font-weight: bold; }
+            .font-titillium { font-family: 'Titillium Web', sans-serif; }
+            .font-oxygen { font-family: 'Oxygen', sans-serif; font-weight: bold }
+            .font-bold { font-weight: bold; }
+
+            .font-100 { font-size:100px; }
+            .font-80 { font-size:80px; }
+            .font-75 { font-size:75px; }
+
+            .col-white { color:#fff !important; }
+            .col-black { color:#000 !important; }
+
+            .square:hover .tile { visibility: visible; cursor:pointer }
+            .tile { visibility: hidden; background:rgba(0,0,0,.5) }
+        </style>
+    </head>
+    <body>
+      
+    <div ng-include="'_header.html'"></div>
+      
+    <div class="background height-50vh" style="background-image:url('../uploads/{{hireus_main.value}}');">
+        <div class="grid-x grid-padding-x align-middle align-center text-center height-50vh">
+            <h2 class="font-allan font-bold col-white font-80" style="line-height:60px; margin-top:20px;">Hire Us</h2>
+        </div>
+    </div>
+      
+    <div class="padding-2">
+        <div class="grid-x grid-padding-x padding-vertical-1">
+            <div class="cell small-4">
+                <div class="text-center" style="background:#eee;">
+                    <div class="padding-2">
+                        <h1 class="font-allan">{{plan01_title.value}}</h1>
+                        <p class="font-titillium">{{plan01_desc.value}}</p>
+                        <h6 class="display-inline font-oxygen" style="margin-right: 5px;">£</h6>
+                        <h2 class="display-inline font-oxygen">{{plan01_price.value}}</h2>
+                    </div>                      
+                    <div class="padding-vertical-2 text-center font-oxygen width-100" style="background:#ddd;">
+                        <div class="text-left display-table" style="margin: 0 auto;" ng-bind-html="plan01_bkdwn.value"></div>
+                    </div> 
+                    <div class="padding-2">
+                        <a href="" class="hollow button display-inline-block col-black" style="border:2px solid #000">
+                            <h5 class="font-titillium-b margin-0">Purchase</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="text-center" style="background:#eee;">
+                    <div class="padding-2">
+                        <h1 class="font-allan">{{plan02_title.value}}</h1>
+                        <p class="font-titillium">{{plan02_desc.value}}</p>
+                        <h6 class="display-inline font-oxygen" style="margin-right: 5px;">£</h6>
+                        <h2 class="display-inline font-oxygen">{{plan02_price.value}}</h2>
+                    </div>                      
+                    <div class="padding-vertical-2 text-center font-oxygen width-100" style="background:#ddd;">
+                        <div class="text-left display-table" style="margin: 0 auto;" ng-bind-html="plan02_bkdwn.value"></div>
+                    </div> 
+                    <div class="padding-2">
+                        <a href="" class="hollow button display-inline-block col-black" style="border:2px solid #000">
+                            <h5 class="font-titillium-b margin-0">Purchase</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-4">
+                <div class="text-center" style="background:#eee;">
+                    <div class="padding-2">
+                        <h1 class="font-allan">{{plan03_title.value}}</h1>
+                        <p class="font-titillium">{{plan03_desc.value}}</p>
+                        <h6 class="display-inline font-oxygen" style="margin-right: 5px;">£</h6>
+                        <h2 class="display-inline font-oxygen">{{plan03_price.value}}</h2>
+                    </div>                      
+                    <div class="padding-vertical-2 text-center font-oxygen width-100" style="background:#ddd;">
+                        <div class="text-left display-table" style="margin: 0 auto;" ng-bind-html="plan03_bkdwn.value"></div>
+                    </div> 
+                    <div class="padding-2">
+                        <a href="" class="hollow button display-inline-block col-black" style="border:2px solid #000">
+                            <h5 class="font-titillium-b margin-0">Purchase</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+      
+    <div ng-include="'_footer.html'"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.1/js/plugins/foundation.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/10.0.4/ng-file-upload-shim.min.js"></script>
+    <script src="app.js"></script>
+    </body>
+</html>
