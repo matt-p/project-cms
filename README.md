@@ -21,4 +21,4 @@ Specification:
 Requirements
 
 - Node.js
-- MariaDB or equivilant
+- MariaDB or equivalent
