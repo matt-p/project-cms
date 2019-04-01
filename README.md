@@ -13,7 +13,7 @@ To configure and run the CMS please follow the below steps:
 
 Specification:
 
-- Front end framework(s): FFE Admin - Uikit 2.x, Foundation xx
+- Front end framework(s): Uikit 2.5.7 Foundation 6.5.1
 - Font(s): Admin Typeface - Railway (Google Fonts), Titillum Web, Allan, Oxygen (Google Fonts)
 - Icon set(s): Clarity Icons, FontAwesome Icons
 - Technologies: Node.js, Express.js, Angular.js
