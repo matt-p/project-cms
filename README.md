@@ -9,7 +9,7 @@ Specification:
 - Front end framework(s): UIkit 2.27.5, Foundation 6.5.1
 - Font(s): Railway, Titillum Web, Allan, Oxygen (Google Fonts)
 - Icon set(s): Clarity Icons, FontAwesome Icons
-- Technologies: Node.js, Express.js, Angular.js
+- Technologies: Node.js, Express.js, AngularJS
 
 Requirements
 
